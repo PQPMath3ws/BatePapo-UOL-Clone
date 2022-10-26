@@ -2,15 +2,22 @@ async function request(type, url, body) {
     return new Promise((resolve, reject) => {
         let httpRequest = new XMLHttpRequest();
         httpRequest.open(type, url);
-        httpRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
         httpRequest.onload = function() {
-            if (httpRequest.status === 200) resolve(JSON.parse(httpRequest.response));
-            else reject(JSON.parse(httpRequest.response));
+            let requestJson = {
+                status: httpRequest.status,
+                response: httpRequest.response
+            }
+            if (httpRequest.status === 200) resolve(requestJson);
+            else reject(requestJson);
         };
         httpRequest.onerror = function() {
-            reject(JSON.parse(httpRequest.response));
+            let requestJson = {
+                status: httpRequest.status,
+                response: httpRequest.response
+            }
+            reject(requestJson);
         };
-        if (body) httpRequest.send(body);
+        if (body) httpRequest.send(JSON.stringify(body));
         else httpRequest.send();
     });
 }
