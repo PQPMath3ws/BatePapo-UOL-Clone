@@ -9,7 +9,7 @@ body {
     background-color: #E5E5E5;
 }
 
-#content {
+#content, #login {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,9 +19,12 @@ body {
     -moz-transform: translate(-50%, -50%);
 }
 
+#logo-div {
+    text-align: center;
+}
+
 #logo {
     width: 250px;
-    display: inline-block;
 }
 
 #loading-div {
@@ -41,7 +44,7 @@ body {
     position: absolute;
     transform: rotate(calc(var(--n) * 45deg));
     transform-origin: 0 40px;
-    animation: loading_spin_anim 1.1s ease-in infinite;
+    animation: loading_spin_anim 1.0s ease-in infinite;
     animation-delay: calc(var(--n) * 0.05s);
 }
 
@@ -50,7 +53,7 @@ body {
         background-color: #202020;
     }
     50.01%, 100% {
-        background-color: #E5E5E5;
+        background-color: #B5B5B5;
     }
 }
 
@@ -60,4 +63,61 @@ body {
     font-size: 22px;
     text-align: center;
     margin-top: 95px;
+}
+
+#input-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#username {
+    width: 310px;
+    height: 44px;
+    border: 4px solid #D7D7D7;
+    background-color: #EFEFEF;
+    border-radius: 12px;
+    display: inline-block;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #555555;
+}
+
+#username:focus {
+    border: 4px solid #B7B7B7;
+    outline: none !important;
+}
+
+#login-btn-div {
+    text-align: center;
+    margin-top: 90px;
+}
+
+#login-btn {
+    border: none;
+    padding: 14px 50px;
+    border-radius: 8px;
+    background-color: #A9A9A9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#error-message {
+    display: none;
+    margin-top: 80px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #DD2020;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#awaiting-div {
+    display: none;
+    margin-top: 40px;
 }
