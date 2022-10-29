@@ -1,4 +1,5 @@
 window.onload = async function() {
+    document.body.style.display = "block";
     document.getElementById("login-btn").addEventListener("click", async function() {
         let username = document.getElementById("username");
         if (!username.value) {

@@ -7,6 +7,7 @@
 
 body {
     background-color: #E5E5E5;
+    display: none;
 }
 
 #content, #login {

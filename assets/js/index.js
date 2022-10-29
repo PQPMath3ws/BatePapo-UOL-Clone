@@ -1,4 +1,5 @@
 window.onload = async function () {
+    document.body.style.display = "block";
     let name = localStorage.getItem("username");
     if (name) {
         const checkUserURL = "https://mock-api.driven.com.br/api/v6/uol/status";
