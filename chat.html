@@ -15,62 +15,56 @@
                 <img id="header-logo" src="assets/images/logo.png" alt="Logo do Bate Papo Uol">
             </div>
             <div id="header-users-div">
-                <button id="get-users-btn">
+                <button id="get-users-btn" onclick="openConfigDiv()">
                     <ion-icon name="people-sharp"></ion-icon>
                 </button>
             </div>
         </nav>
         <div id="messages-div">
-            <div class="enter-message">
-                <span class="time">(09:21:45)</span>
-                <span class="status"><b>João</b> entra na sala...</span>
-            </div>
-            <div class="public-message">
-                <span class="time">(09:21:45)</span>
-                <span class="message"><b>João</b> para <b>Todos</b>: Bom dia, gente!</span>
-            </div>
-            <div class="reserved-message">
-                <span class="time">(09:21:45)</span>
-                <span class="message"><b>João</b> reservadamente para <b>Maria</b>: E aí, gatinha, vamos TC?</span>
+            <div class="center">
+                <div id="loading-div">
+                    <span style="--n:1"></span>
+                    <span style="--n:2"></span>
+                    <span style="--n:3"></span>
+                    <span style="--n:4"></span>
+                    <span style="--n:5"></span>
+                    <span style="--n:6"></span>
+                    <span style="--n:7"></span>
+                    <span style="--n:8"></span>
+                </div>
             </div>
         </div>
         <footer id="send-messages-div">
             <div id="send-input-div">
-                <input id="message-input" type="text" placeholder="Escreva aqui...">
+                <div id="message-input-div">
+                    <input id="message-input" type="text" placeholder="Escreva aqui..." onkeydown="checkEnterPressed(event)">
+                </div>
+                <div id="send-btn-div" onclick="sendMessage()">
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                </div>
             </div>
-            <div id="send-btn-div">
-                <ion-icon name="paper-plane-outline"></ion-icon>
-            </div>
+            <p id="status-send-message-text">Enviando publicamente para Todos</p>
         </footer>
         <div id="online-chat">
             <div id="options-chat">
                 <div id="options-close-btn-div">
-                    <button id="options-close-btn">
+                    <button id="options-close-btn" onclick="closeConfigDiv()">
                         <ion-icon name="close-sharp"></ion-icon>
                     </button>
                 </div>
                 <p id="choose-text-talk">Escolha um contato para enviar mensagem:</p>
                 <div id="choose-talker">
-                    <div class="option">
-                        <ion-icon name="people-sharp"></ion-icon>
-                        <span>Todos</span>
-                    </div>
-                    <div class="option">
-                        <ion-icon name="person-circle-sharp"></ion-icon>
-                        <span>Maria</span>
-                    </div>
-                    <div class="option">
-                        <ion-icon name="person-circle-sharp"></ion-icon>
-                        <span>João</span>
-                    </div>
                 </div>
                 <p id="choose-visibility-talk">Escolha a visibilidade</p>
                 <div id="choose-visibility">
-                    <div class="option">
+                    <div class="option" onclick="setVisibility(this)">
                         <ion-icon name="lock-open-sharp"></ion-icon>
                         <span>Público</span>
+                        <div class="check">
+                            <ion-icon name="checkmark-sharp"></ion-icon>
+                        </div>
                     </div>
-                    <div class="option">
+                    <div class="option" onclick="setVisibility(this)">
                         <ion-icon name="lock-closed-sharp"></ion-icon>
                         <span>Reservadamente</span>
                     </div>

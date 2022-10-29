@@ -132,6 +132,7 @@ body {
     margin: 14px 0px;
     padding-bottom: 6px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    overflow-x: hidden;
 }
 
 #header-logo-div {
@@ -158,19 +159,33 @@ body {
 
 #messages-div {
     position: fixed;
-    top: 110px;
+    top: 106px;
+    bottom: 0px;
     width: 100%;
-    height: 70%;
+    margin-bottom: 88px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.enter-message, .public-message, .reserved-message {
+.center {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -o-transform: translate(-45%, -50%);
+    -ms-transform: translate(-45%, -50%);
+    -moz-transform: translate(-45%, -50%);
+    transform: translate(-45%, -50%);
+}
+
+.status-message, .public-message, .reserved-message {
     padding: 14px 10px;
     margin-bottom: 4px;
     border-radius: 2px;
+    width: 100%;
+    word-wrap: break-word;
 }
 
-.enter-message {
+.status-message {
     background-color: #DCDCDC;
 }
 
@@ -182,6 +197,8 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
+    display: inline-block;
+    width: 94%;
 }
 
 .time {
@@ -195,23 +212,33 @@ body {
 
 #send-messages-div {
     position: fixed;
-    display: flex;
     width: 100%;
     bottom: 0;
     padding: 20px 0px;
-    justify-content: space-between;
     align-items: center;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    overflow-x: hidden;
+    background-color: #E5E5E5;
+    z-index: 1;
 }
 
 #send-input-div {
-    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    width: 100% !important;
+}
+
+#message-input-div {
+    width: 82%;
+    margin-left: 21px;
+    margin-bottom: 14px;
 }
 
 #message-input {
     height: 30px;
     border: none;
-    width: 586%;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
     font-weight: 400;
@@ -223,9 +250,24 @@ body {
     outline: none;
 }
 
+#status-send-message-text {
+    position: absolute;
+    bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: #505050;
+    width: 100%;
+    margin-left: 20px;
+}
+
 #send-btn-div {
-    margin-right: 30px;
+    margin-top: 8px;
+    margin-right: 16px;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
 }
 
 #send-btn-div ion-icon {
@@ -249,15 +291,18 @@ body {
     float: right;
     text-align: center;
     overflow-y: scroll;
+    opacity: 1;
 }
 
 #options-close-btn-div {
     position: absolute;
     right: 20px;
     top: 10px;
+    z-index: 2;
 }
 
 #options-close-btn {
+    background-color: #E5E5E5;
     cursor: pointer;
     border: none;
 }
@@ -275,7 +320,8 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    margin-top: 36px;
+    margin-top: 46px;
+    padding: 0% 12%;
 }
 
 #choose-talker, #choose-visibility {
@@ -284,18 +330,22 @@ body {
     font-weight: 400;
     font-size: 16px;
     text-align: left;
-    margin-left: 14px;
 }
 
 #choose-visibility {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .option {
-    margin-bottom: 14px;
+    position: relative;
+    padding: 14px 14px;
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.option:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .option ion-icon {
@@ -305,4 +355,64 @@ body {
 
 .option span {
     display: inline-block;
+}
+
+.check {
+    position: absolute;
+    right: 40px;
+}
+
+.check ion-icon {
+    color: #28BB25;
+    font-weight: bold;
+}
+
+.fadeIn {
+    -moz-animation: fade 0.2s linear;
+    -webkit-animation: fade 0.2s linear;
+    -o-animation: fade 0.2s linear;
+    animation: fade 0.2s linear;
+}
+
+.fadeOut {
+    -moz-animation: fade 0.2s linear reverse;
+    -webkit-animation: fade 0.2s linear reverse;
+    -o-animation: fade 0.2s linear reverse;
+    animation: fade 0.2s linear reverse;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
