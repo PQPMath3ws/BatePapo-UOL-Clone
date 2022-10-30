@@ -95,7 +95,7 @@ function getUsers() {
                     for (let i = 0; i < users.length; i++) {
                         let option = null;
                         if (selectedSendMessageIndex === i) {
-                            option = `<div class="option" onclick="setDestinatary(this)">
+                            option = `<div class="option" onclick="setDestinatary(this)" data-identifier="participant">
                                 <ion-icon name="${users[i].icon}"></ion-icon>
                                 <span>${users[i].name}</span>
                                 <div class="check">
