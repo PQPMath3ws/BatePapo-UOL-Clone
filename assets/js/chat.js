@@ -174,7 +174,7 @@ function configureChat() {
         if (continueLoggedInterval) clearInterval(continueLoggedInterval);
         continueLoggedInterval = setInterval(iAmOnline, 3000);
         if (usersInterval) clearInterval(usersInterval);
-        usersInterval = setInterval(getUsers, 3000);
+        usersInterval = setInterval(getUsers, 10000);
         if (messagesInterval) clearInterval(messagesInterval);
         messagesInterval = setInterval(getMessages, 3000);
     }
