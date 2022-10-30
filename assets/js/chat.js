@@ -133,20 +133,25 @@ function getMessages() {
                     messagesDiv.innerHTML = "";
                     messages.forEach(function (message) {
                         let messageDivToInsert = null;
+                        let stringHourSplit = message.time.split(":");
+                        let clientHour = new Date();
+                        let difference = clientHour.getHours() - parseInt(stringHourSplit[0]);
+                        let newHour = new Date(clientHour.toGMTString() + `+${difference}`);
+                        newHour.setHours(newHour.getHours() + difference);
                         if (message.type === "status") {
                             messageDivToInsert = `<div class="status-message">
-                                <span class="time">(${message.time})</span>
+                                <span class="time">(${newHour.getHours()}:${stringHourSplit[1]}:${stringHourSplit[2]})</span>
                                 <span class="status"><b>${message.from}</b> ${message.text}</span>
                             </div>`;
                         } else if (message.type === "message") {
                             messageDivToInsert = `<div class="public-message">
-                                <span class="time">(${message.time})</span>
+                                <span class="time">(${newHour.getHours()}:${stringHourSplit[1]}:${stringHourSplit[2]})</span>
                                 <span class="message"><b>${message.from}</b> para <b>${message.to}</b>: ${message.text}</span>
                             </div>`;
                         } else {
                             if (message.to === localStorage.getItem("username") || message.to === "Todos" || message.from === localStorage.getItem("username")) {
                                 messageDivToInsert = `<div class="reserved-message">
-                                    <span class="time">(${message.time})</span>
+                                    <span class="time">(${newHour.getHours()}:${stringHourSplit[1]}:${stringHourSplit[2]})</span>
                                     <span class="message"><b>${message.from}</b> reservadamente para <b>${message.to}</b>: ${message.text}</span>
                                 </div>`;
                             }
